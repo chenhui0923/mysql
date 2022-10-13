@@ -7,6 +7,26 @@
     <title>Document</title>
 </head>
 <body>
+    <h1>Mysql学习</h1>
+    <div>
+        <h3>排名<span> (https://blog.csdn.net/qq_41057885/article/details/109176014) </span></h3>
+    <ul>
+        <li>rank() over(业务逻辑)<span class="blue">--查出指定条件后的进行排名，条件相同排名相同，排名间断不连续。</span></li>
+        <p class="pink">SELECT id, name, score, rank() over(ORDER BY score DESC) AS 'rank' FROM student </p>
+        <li>dense_rank() over(业务逻辑)<span class="blue">--查出指定条件后的进行排名，条件相同排名相同，排名间断不连续。</span></li>
+        <p class="pink">SELECT id, name, score, dense_rank() over(ORDER BY score DESC) AS 'rank' FROM student </p>
+        <li>row_number() over(业务逻辑)<span class="blue">--查出指定条件后的进行排名，条件相同排名也不相同，排名间断不连续。</span></li>
+        <p class="pink">SELECT id, name, score, row_number() over(ORDER BY score DESC) AS 'rank' FROM student </p>
+    </ul>
+    </div>
     
 </body>
+<style>
+    .blue{
+        color: rgb(71, 71, 243);
+    }
+    .pink{
+        color: rgb(230, 81, 81);
+    }
+</style>
 </html>
