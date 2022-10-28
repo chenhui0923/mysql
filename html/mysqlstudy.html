@@ -40,6 +40,8 @@
                 <p>行的排序方式，默认的为升序。 order by 后面必须列出排序的字段名，可以是多个字段名。order by 列名,列名</p>
                 <li>group up</li>
                 <p>必须有“聚合函数”来配合才能使用，使用时至少需要一个分组标志字段.聚合函数是---sum()、count()、avg()等都是“聚合函数”</p>
+                <h4>WITH POLLUP 关键字用来在所有记录的最后加上一条记录，这条记录是上面所有记录的总和，即统计记录数量。</h4>
+                <p> SELECT sex,GROUP_CONCAT(name) FROM tb_students_info group by sex WITH ROLLUP</p>
             </ul>
         </div>
         <div>
