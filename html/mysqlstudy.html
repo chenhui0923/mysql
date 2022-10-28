@@ -1,57 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <h1>Mysql学习</h1>
     <div class="sql">
         <h3>排名<span> (https://blog.csdn.net/qq_41057885/article/details/109176014) </span></h3>
-    <ul>
-        <li>rank() over(业务逻辑)<span >--查出指定条件后的进行排名，条件相同排名相同，排名间断不连续。</span></li>
-        <p >SELECT id, name, score, rank() over(ORDER BY score DESC) AS 'rank' FROM student </p>
-        <li>dense_rank() over(业务逻辑)<span >--查出指定条件后的进行排名，条件相同排名相同，排名间断不连续。</span></li>
-        <p >SELECT id, name, score, dense_rank() over(ORDER BY score DESC) AS 'rank' FROM student </p>
-        <li>row_number() over(业务逻辑)<span >--查出指定条件后的进行排名，条件相同排名也不相同，排名间断不连续。</span></li>
-        <p >SELECT id, name, score, row_number() over(ORDER BY score DESC) AS 'rank' FROM student </p>
-    </ul>
-    
-    <div >
-        <h3>count()语法</h3>
         <ul>
-            <li>count(*)<span>---包括所有列,返回表中的记录数,相当于统计表的行数,在统计结果的时候,不会忽略列值为NULL的记录。</span></li>
-            <li>count(1)<span>--忽略所有列,1表示一个固定值,也可以用count(2)、count(3)代替,在统计结果的时候,不会忽略列值为NULL的记录。</span></li>
-            <li>count(列名)<span>---只包括列名指定列,返回指定列的记录数,在统计结果的时候,会忽略列值为NULL的记录(不包括空字符串和0),即列值为NULL的记录不统计在内。</span></li>
-            <li>count(distinct 列名)<span>---只包括列名指定列,返回指定列的不同值的记录数,在统计结果的时候,在统计结果的时候,会忽略列值为NULL的记录(不包括空字符串和0),即列值为NULL的记录不统计在内。</span></li>
-          
+            <li>rank() over(业务逻辑)<span>--查出指定条件后的进行排名，条件相同排名相同，排名间断不连续。</span></li>
+            <p>SELECT id, name, score, rank() over(ORDER BY score DESC) AS 'rank' FROM student </p>
+            <li>dense_rank() over(业务逻辑)<span>--查出指定条件后的进行排名，条件相同排名相同，排名间断不连续。</span></li>
+            <p>SELECT id, name, score, dense_rank() over(ORDER BY score DESC) AS 'rank' FROM student </p>
+            <li>row_number() over(业务逻辑)<span>--查出指定条件后的进行排名，条件相同排名也不相同，排名间断不连续。</span></li>
+            <p>SELECT id, name, score, row_number() over(ORDER BY score DESC) AS 'rank' FROM student </p>
         </ul>
+
+        <div>
+            <h3>count()语法</h3>
+            <ul>
+                <li>count(*)<span>---包括所有列,返回表中的记录数,相当于统计表的行数,在统计结果的时候,不会忽略列值为NULL的记录。</span></li>
+                <li>count(1)<span>--忽略所有列,1表示一个固定值,也可以用count(2)、count(3)代替,在统计结果的时候,不会忽略列值为NULL的记录。</span></li>
+                <li>count(列名)<span>---只包括列名指定列,返回指定列的记录数,在统计结果的时候,会忽略列值为NULL的记录(不包括空字符串和0),即列值为NULL的记录不统计在内。</span></li>
+                <li>count(distinct
+                    列名)<span>---只包括列名指定列,返回指定列的不同值的记录数,在统计结果的时候,在统计结果的时候,会忽略列值为NULL的记录(不包括空字符串和0),即列值为NULL的记录不统计在内。</span>
+                </li>
+
+            </ul>
+        </div>
+        <div>
+            <h3>排序</h3>
+            <ul>
+                <li>order by </li>
+                <p>行的排序方式，默认的为升序。 order by 后面必须列出排序的字段名，可以是多个字段名。order by 列名,列名</p>
+                <li>group up</li>
+                <p>必须有“聚合函数”来配合才能使用，使用时至少需要一个分组标志字段.聚合函数是---sum()、count()、avg()等都是“聚合函数”</p>
+            </ul>
+        </div>
+        <div>
+            <h3>isNUll</h3>
+            <ul>
+                <p>IFNULL(expression, alt_value)如果第一个参数的表达式 expression 为 NULL,则返回第二个参数的备用值。</p>
+            </ul>
+        </div>
+        <div>
+            <h3>LIMIT 限制查询结果的条数</h3>
+            <ul>
+                <li>语法:LIMIT 初始位置,记录数</li>
+                <p>select * from admin LIMIT 0,5</p>
+                <li>语法：LIMIT 记录数 OFFSET 初始位置</li>
+                <p>LIMIT 5 OFFSET 3   该写法与LIMIT 3,5效果一致</p>
+            </ul>
+        </div>
     </div>
-    <div >
-        <h3>排序</h3>
-        <ul>
-            <li>order by </li>
-            <p>行的排序方式，默认的为升序。 order by 后面必须列出排序的字段名，可以是多个字段名。</p>
-            <li>group up</li>
-            <p>必须有“聚合函数”来配合才能使用，使用时至少需要一个分组标志字段.聚合函数是---sum()、count()、avg()等都是“聚合函数”</p>
-        </ul>
-    </div>
-    <div>
-        <h3>isNUll</h3>
-        <ul>
-            <p>IFNULL(expression, alt_value)如果第一个参数的表达式 expression 为 NULL,则返回第二个参数的备用值。</p>
-        </ul>
-    </div>
-</div>
 </body>
+
+
+
+
 <style>
-    .sql ul li span{
+    .sql ul li span {
         color: rgb(71, 71, 243);
     }
-    .sql ul p{
+
+    .sql ul p {
         color: rgb(230, 81, 81);
     }
 </style>
+
 </html>
