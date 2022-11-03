@@ -88,7 +88,15 @@
         <div>
             <h3>索引</h3>
             <ul>
-                <li></li>
+                <li>语法：CREATE <索引名> ON <表名> (<列名> [<长度>] [ ASC | DESC])</li>
+                <p>创建普通索引</p>
+                <li>语法:KEY | INDEX [<索引名>] [<索引类型>] (<列名>,…)</li>
+                <p>创建唯一索引</p>
+                <li>语法：UNIQUE [ INDEX | KEY] [<索引名>] [<索引类型>] (<列名>,…)</li>
+                <p>查看索引</p>
+                <li>语法：SHOW INDEX FROM <表名></li>
+                <p>删除索引</p>
+                <li>语法：DROP INDEX <索引名> ON <表名></li>
             </ul>
         </div>
     </div>
