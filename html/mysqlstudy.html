@@ -99,6 +99,26 @@
                 <li>语法：DROP INDEX <索引名> ON <表名></li>
             </ul>
         </div>
+        <div>
+            <h3>去重</h3>
+            <ul>
+                <p>说明：MySQL UNION 操作符用于连接两个以上的 SELECT 语句的结果组合到一个结果集合中。多个 SELECT 语句会删除重复的数据。</p>
+                <li> select employee_id, department_id  from
+                    Employee
+                group by
+                    employee_id
+                having
+                    count(department_id) = 1
+                union 
+                select
+                    employee_id, department_id
+                from
+                    Employee
+                where 
+                    primary_flag = 'Y' ;
+                </li>
+            </ul>
+        </div>
     </div>
 </body>
 
